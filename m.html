@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قصص 15 دقيقة - قصص قصيرة جدًا</title>
+    <meta name="description" content="شارك قصتك القصيرة جدًا في 15 دقيقة أو أقل - نصوص، تسجيلات صوتية أو مقاطع فيديو">
+    <link rel="stylesheet" href="m.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><i class="fas fa-clock"></i> قصص 15 دقيقة</h1>
+            <p>شارك قصتك القصيرة جدًا في 15 دقيقة أو أقل</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#" class="active" data-filter="all">الكل</a></li>
+                <li><a href="#" data-filter="text">نصوص</a></li>
+                <li><a href="#" data-filter="audio">صوتيات</a></li>
+                <li><a href="#" data-filter="video">فيديوهات</a></li>
+                <li class="float-left"><a href="#" id="add-story-btn"><i class="fas fa-plus"></i> إضافة قصة</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="stories-grid" id="stories-container">
+            <!-- ستتم إضافة القصص هنا عبر JavaScript -->
+        </div>
+    </main>
+
+    <!-- نموذج إضافة قصة جديد -->
+    <div class="modal" id="add-story-modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2><i class="fas fa-plus-circle"></i> إضافة قصة جديدة</h2>
+            
+            <form id="story-form">
+                <div class="form-group">
+                    <label for="story-title">عنوان القصة (اختياري)</label>
+                    <input type="text" id="story-title" placeholder="عنوان مختصر يجذب الانتباه">
+                </div>
+                
+                <div class="form-group">
+                    <label>نوع القصة</label>
+                    <div class="story-type-selector">
+                        <input type="radio" id="text-type" name="story-type" value="text" checked>
+                        <label for="text-type" class="type-option">
+                            <i class="fas fa-font"></i> نص
+                        </label>
+                        
+                        <input type="radio" id="audio-type" name="story-type" value="audio">
+                        <label for="audio-type" class="type-option">
+                            <i class="fas fa-microphone"></i> صوت
+                        </label>
+                        
+                        <input type="radio" id="video-type" name="story-type" value="video">
+                        <label for="video-type" class="type-option">
+                            <i class="fas fa-video"></i> فيديو
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="form-group" id="text-content-group">
+                    <label for="story-text">محتوى القصة (15 دقيقة قراءة كحد أقصى)</label>
+                    <textarea id="story-text" rows="4" placeholder="اكتب قصتك هنا..."></textarea>
+                    <div class="char-counter"><span id="char-count">0</span>/1800 حرف</div>
+                </div>
+                
+                <div class="form-group hidden" id="audio-content-group">
+                    <label>تسجيل صوتي</label>
+                    <div class="audio-recorder">
+                        <button type="button" id="record-btn"><i class="fas fa-microphone"></i> تسجيل</button>
+                        <button type="button" id="stop-btn" disabled><i class="fas fa-stop"></i> إيقاف</button>
+                        <audio id="audio-preview" controls class="hidden"></audio>
+                        <p class="hint">الحد الأقصى للتسجيل: 15 دقيقة</p>
+                    </div>
+                </div>
+                
+                <div class="form-group hidden" id="video-content-group">
+                    <label>رفع فيديو</label>
+                    <div class="video-uploader">
+                        <input type="file" id="video-upload" accept="video/*">
+                        <label for="video-upload" class="upload-btn">
+                            <i class="fas fa-upload"></i> اختر ملف فيديو
+                        </label>
+                        <p class="hint">الحد الأقصى لمدة الفيديو: 15 دقيقة</p>
+                        <video id="video-preview" controls class="hidden"></video>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="story-category">التصنيف</label>
+                    <select id="story-category">
+                        <option value="funny">مضحكة</option>
+                        <option value="sad">حزينة</option>
+                        <option value="scary">مرعبة</option>
+                        <option value="romantic">رومانسية</option>
+                        <option value="weird">غريبة</option>
+                        <option value="inspirational">ملهمة</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="submit-btn">نشر القصة</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 قصص 15 دقيقة - جميع الحقوق محفوظة</p>
+        </div>
+    </footer>
+
+    <script src="m.js"></script>
+</body>
+</html>
+
